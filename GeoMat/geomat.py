@@ -497,7 +497,6 @@ class AddLayerScreen(Screen):
     def save_data(self, *args):
         """ saves user input data """
         if self.field1.text != '':
-            print('nie pusta')
             self.save_inputs()
             self.clear_text_fields()
 
@@ -508,7 +507,6 @@ class AddLayerScreen(Screen):
             layer_data_dict = dict(zip(self.layer_names_list, self.user_inputs))
             main_layer_data_dict.update({f'{layer_name}': layer_data_dict})
 
-            print(main_layer_data_dict)
             self.user_inputs = []
             ab_change_screen()
         else:
@@ -518,7 +516,6 @@ class AddLayerScreen(Screen):
     def delete_layer(self, *args):
         """ deletes layer """
         AddBoreholeScreen.btn_to_remove = self.layer_to_edit
-        print(self.layer_to_edit)
         del main_layer_data_dict[self.layer_to_edit]
         if self.layer_to_edit in self.layers_names:
             self.layers_names.remove(self.layer_to_edit)
